@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">掌上校园</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="launch_motto">掌上校园</string>
+    <string name="copyright">© wanqing  all rights reserved</string>
+</resources>

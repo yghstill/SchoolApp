@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ban_transparent">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="319dp"
+            android:layout_height="182dp"
+            android:layout_marginTop="30dp"
+            app:srcCompat="@drawable/fab_label_background"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请 插 入 图 片"
+            android:textSize="25sp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            />
+    </RelativeLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        app:counterEnabled="true"
+        app:counterMaxLength="50"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center_horizontal">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/et_meijing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="美景描述"
+            android:padding="25dp" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_commit1"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:background="@drawable/btn_ok2"
+        android:text="提 交"
+        android:enabled="false"
+        android:textColor="@drawable/btn_login_text"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_horizontal"/>
+</LinearLayout>
+
+
+        <com.getbase.floatingactionbutton.FloatingActionsMenu
+            android:id="@+id/fab_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="33dp"
+            android:layout_marginRight="26dp"
+            fab:fab_addButtonColorNormal="#4876FF"
+            fab:fab_addButtonColorPressed="@color/colorPrimary"
+            fab:fab_addButtonPlusIconColor="@color/white"
+            fab:fab_labelStyle="@style/menu_labels_style"
+            fab:fab_labelsPosition="left">
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/camera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                fab:fab_size="mini"
+                fab:fab_colorNormal="#1C86EE"
+                fab:fab_icon="@android:drawable/ic_menu_camera"
+                fab:fab_colorPressed="#104E8B"
+                fab:fab_title="拍照" />
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                fab:fab_size="mini"
+                fab:fab_colorNormal="#1C86EE"
+                fab:fab_icon="@android:drawable/ic_menu_camera"
+                fab:fab_colorPressed="#104E8B"
+                fab:fab_title="相册" />
+        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+
+</android.support.design.widget.CoordinatorLayout>

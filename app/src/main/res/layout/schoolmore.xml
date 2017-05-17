@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textStyle="bold"
+                android:textSize="21sp"
+                android:inputType="textMultiLine"
+                android:maxLines="3"
+                android:text="标题"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:padding="10dp"
+                    android:text="时间"/>
+
+                <TextView
+                    android:id="@+id/provider"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:padding="10dp"
+                    android:textColor="@color/actionsheet_blue"
+                    android:text="提供者"/>
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ffcccccc" />
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:padding="25dp"
+                android:textSize="16sp"
+                android:inputType="textMultiLine"
+                android:textColor="@color/black"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.3"
+                android:text="未获取未获取未获取未获取未获取未获取未获取未获取未获取未获取未获取未获取未获取"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="© 2017 wanqing 掌上校园"
+                android:padding="20dp"
+                android:gravity="center"
+                android:background="#e6e6e6" />
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+</LinearLayout>
