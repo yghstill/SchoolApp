@@ -1,6 +1,7 @@
 package com.example.schoolwq;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -15,6 +16,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -38,6 +40,7 @@ import android.widget.Toast;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.squareup.picasso.Picasso;
 //import com.squareup.okhttp.MediaType;
 //import com.squareup.okhttp.MultipartBuilder;
 //import com.squareup.okhttp.OkHttpClient;
@@ -55,6 +58,7 @@ import java.util.List;
 
 import Bean.PictureBean;
 import Internet.MyOkhttp;
+import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
@@ -62,9 +66,15 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import ui.adapter.GridAdapter;
+import ui.loading.BaseApplication;
 import ui.main.AddPictureActivity;
 import ui.me.LogoutDialogFragment;
+import ui.me.MoreMovieActivity;
 import ui.me.MymsgActivity;
+import ui.me.NavigationActivity;
+import ui.me.NewsListActivity;
+import ui.me.NoticeListActivity;
+import ui.me.PeripheryActivity;
 import ui.me.SchoolListActivity;
 import ui.tools.SnackbarUtil;
 
@@ -84,6 +94,7 @@ public class MainActivity extends AppCompatActivity
     private SharedPreferences pref;
     private LinearLayout lay;
     private TextView name,xueyuan;
+    private String imgurl = mURL+":8080/wanqing/gethead/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,8 +115,11 @@ public class MainActivity extends AppCompatActivity
         navigationView.setItemIconTintList(null);  //个性图标得到解放~嘿嘿
         View headerView = navigationView.getHeaderView(0);
         //初始化头像
-        ImageView head = (ImageView) headerView.findViewById(R.id.image_head);
-        head.setImageResource(R.mipmap.main_2_more);
+        CircleImageView head = (CircleImageView) headerView.findViewById(R.id.image_head);
+        if(pref.getBoolean("imghead",false)==true){
+            Picasso.with(this).load(imgurl+pref.getString("userid","")).into(head);
+        }
+//        head.setImageResource(R.mipmap.main_2_more);
         //初始化名字
         name = (TextView) headerView.findViewById(R.id.username);
         xueyuan = (TextView) headerView.findViewById(R.id.xueyuan);
@@ -212,7 +226,21 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("提示");
+            builder.setMessage("确定要退出吗？");
+            builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    //这里添加点击确定后的逻辑
+                    BaseApplication.getInstance().exit();
+                }
+            });
+            builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    //这里添加点击确定后的逻辑
+                }
+            });
+            builder.create().show();
         }
     }
 
@@ -245,18 +273,23 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_news) {
-
+            Intent intent = new Intent(MainActivity.this, NewsListActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_school) {
             Intent intent = new Intent(MainActivity.this, SchoolListActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_tongzhi) {
-
+            Intent intent = new Intent(MainActivity.this, NoticeListActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_daohang) {
-
+            Intent intent = new Intent(MainActivity.this, NavigationActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_zhoubian) {
-
+            Intent intent = new Intent(MainActivity.this, PeripheryActivity.class);
+            startActivity(intent);
         }else if (id == R.id.nav_more) {
-
+            Intent intent = new Intent(MainActivity.this, MoreMovieActivity.class);
+            startActivity(intent);
         }else if (id == R.id.nav_fankui) {
 
         }else if (id == R.id.nav_about) {

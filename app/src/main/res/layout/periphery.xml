@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/play"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center"
+        android:text="玩"
+        android:textSize="38sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:background="@drawable/textview_style"/>
+    <TextView
+        android:id="@+id/eat"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center"
+        android:text="吃"
+        android:textSize="38sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:background="@drawable/textview_style"/>
+
+    <TextView
+        android:id="@+id/more"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center"
+        android:text="..."
+        android:textSize="37sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:background="@drawable/textview_style"/>
+
+</LinearLayout>

@@ -17,6 +17,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_weight="1.6"
+            android:gravity="center"
             android:textColor="@color/black"
             android:text="暂无信息"
             android:textSize="17sp" />

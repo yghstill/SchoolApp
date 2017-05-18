@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+        <TextView
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:textColor="#1E88E5"
+            android:textSize="20sp"
+            android:text="详情"
+            android:background="?attr/selectableItemBackground"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:inputType="textMultiLine"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp" />
+    <TextView
+        android:id="@+id/discription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="未获取"
+        android:background="?attr/selectableItemBackground"
+        android:layout_gravity="center"
+        android:inputType="textMultiLine"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp" />
+    <Button
+        android:id="@+id/btn_sure"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/btn_ok2"
+        android:text="返 回"
+        android:textColor="@drawable/btn_login_text" />
+
+
+</LinearLayout>

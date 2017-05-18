@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
-    android:background="@color/colorAccent"
+    android:background="@mipmap/me_back"
     android:orientation="horizontal"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -15,18 +15,19 @@
         android:id="@+id/img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/image_head"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
-            app:srcCompat="@mipmap/main_2_more" />
+            android:src="@mipmap/main_2_more" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="40dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="15dp"
             android:orientation="vertical">
             <TextView
                 android:id="@+id/username"
@@ -34,7 +35,8 @@
                 android:layout_height="wrap_content"
                 android:text="姓名"
                 android:textSize="20sp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#7c817a"/>
             <TextView
                 android:id="@+id/xueyuan"
                 android:layout_width="match_parent"
@@ -42,6 +44,7 @@
                 android:layout_marginTop="5dp"
                 android:text="学院"
                 android:textSize="18sp"
+                android:textColor="#7c817a"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
         </LinearLayout>
     </LinearLayout>
