@@ -9,6 +9,15 @@ public class PictureBean {
     private String url;
     private String imgdesc;
     private String imgtime;
+    private String imgid;
+
+    public String getImgid() {
+        return imgid;
+    }
+
+    public void setImgid(String imgid) {
+        this.imgid = imgid;
+    }
 
     public String getUserid() {
         return useid;

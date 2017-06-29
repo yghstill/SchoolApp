@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -89,6 +90,24 @@ public class MymsgActivity extends BaseActivity implements Runnable{
         if(pref.getBoolean("imghead",false)==true){
             Picasso.with(this).load(imgurl+pref.getString("userid","")).into(headimg);
         }
+    }
+
+    @Override
+    public void initToolbar() {
+        super.initToolbar();
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+        }
+        toolbar.setNavigationIcon(R.mipmap.back1);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MymsgActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void initView() {

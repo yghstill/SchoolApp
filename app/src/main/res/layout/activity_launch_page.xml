@@ -2,9 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/starting"
     tools:context="ui.loading.Loading">
 
+    <ImageView
+        android:id="@+id/imgestart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/starting"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="200dp"
         android:layout_gravity="center"
         android:textSize="32sp"
         android:text="@string/launch_motto" />
@@ -27,7 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+
         android:text="@string/copyright"
-        android:textColor="@color/black" />
+         />
 
 </RelativeLayout>

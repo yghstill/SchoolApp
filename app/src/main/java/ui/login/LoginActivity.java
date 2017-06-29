@@ -173,7 +173,7 @@ public class LoginActivity extends AppCompatActivity implements
 
     private void initUID() {
         pref = getSharedPreferences("user", MODE_PRIVATE);
-        String Username = pref.getString("username", "");
+        String Username = pref.getString("userid", "");
         username.setText(Username);
     }
 

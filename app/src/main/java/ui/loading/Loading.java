@@ -8,6 +8,9 @@ import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
+import android.widget.ImageView;
 
 import com.example.schoolwq.MainActivity;
 import com.example.schoolwq.R;
@@ -30,10 +33,11 @@ public class Loading extends FragmentActivity {
             setContentView(R.layout.activity_launch_page);
         pref = getSharedPreferences("user", MODE_PRIVATE);
         Log.e("登录状态==》",pref.getBoolean("islogin", false)+"");
+        initImage();
         if(pref.getBoolean("islogin", false)==true){
-            mHandler.sendEmptyMessageDelayed(GOTO_MAIN_ACTIVITY, 3000);
+            mHandler.sendEmptyMessageDelayed(GOTO_MAIN_ACTIVITY, 5500);
         }else{
-            mHandler.sendEmptyMessageDelayed(GOTO_LOGIN_ACTIVITY, 3000);
+            mHandler.sendEmptyMessageDelayed(GOTO_LOGIN_ACTIVITY, 5500);
         }
 
 
@@ -58,6 +62,34 @@ public class Loading extends FragmentActivity {
             }
         };
     };
+
+    //开机动画
+    private void initImage() {
+        ImageView image_start = (ImageView) findViewById(R.id.imgestart);
+//        image_start.setImageResource(R.drawable.start);
+        //进行缩放动画
+        ScaleAnimation scaleAnimation = new ScaleAnimation(1.5f, 1.0f, 1.5f, 1.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        scaleAnimation.setDuration(5000);
+        //动画播放完成后保持形状
+        scaleAnimation.setFillAfter(true);
+        scaleAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                //可以在这里先进行某些操作
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+//                init();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+        image_start.startAnimation(scaleAnimation);
+    }
 
 
 }

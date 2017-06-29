@@ -21,7 +21,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main" />
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/staggered_swipe_refresh"
         android:layout_width="match_parent"

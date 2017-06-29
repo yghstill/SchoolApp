@@ -90,6 +90,7 @@ public class LogoutDialogFragment extends DialogFragment implements
 //		editor.putString("username", "");
 		editor.putString("password","");
 		editor.putBoolean("islogin",false);
+		editor.putBoolean("imghead",false);
 		editor.commit();
 		Log.e("登录状态+++++++++++", String.valueOf(pref.getBoolean("islogin",false)));
 		Intent intent = new Intent(mActivity, LoginActivity.class);

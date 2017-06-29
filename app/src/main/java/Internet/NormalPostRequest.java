@@ -17,7 +17,7 @@ import java.util.Map;
  * Created by Y-GH on 2016/6/9.
  */
 public class NormalPostRequest extends Request<JSONObject> {
-    public static String mURL = "http://192.168.1.100";
+    public static String mURL = "http://10.138.68.124";
     private Map<String, String> mMap;
     private Response.Listener<JSONObject> mListener;
     public NormalPostRequest(String url, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener, Map<String, String> map) {

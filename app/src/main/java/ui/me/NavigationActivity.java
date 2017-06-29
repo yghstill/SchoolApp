@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,6 +19,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.webkit.GeolocationPermissions;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -68,8 +70,8 @@ public class NavigationActivity extends BaseActivity implements View.OnClickList
     private void initView() {
         getSupportActionBar().setTitle("校园导航");
         webView = (WebView) findViewById(R.id.webview1);
-         // 设置WebView的客户端
-        webView.setWebViewClient(new WebViewClient(){
+        // 设置WebView的客户端
+        webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 return false;// 返回false
@@ -83,6 +85,12 @@ public class NavigationActivity extends BaseActivity implements View.OnClickList
                 Log.d("TTTT", "弹出提示");
             }
         }
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+                handler.proceed();
+            }
+        });
         WebSettings webSettings = webView.getSettings();
 
 //webview支持js脚本
@@ -110,7 +118,7 @@ public class NavigationActivity extends BaseActivity implements View.OnClickList
             }
 
             @Override
-            public void onGeolocationPermissionsShowPrompt(String origin,GeolocationPermissions.Callback callback) {
+            public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
                 callback.invoke(origin, true, false);
                 super.onGeolocationPermissionsShowPrompt(origin, callback);
 
@@ -120,12 +128,10 @@ public class NavigationActivity extends BaseActivity implements View.OnClickList
     }
 
 
-
     @Override
     public void onClick(View v) {
 
     }
-
 
 
 }

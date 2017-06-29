@@ -76,6 +76,7 @@ import ui.me.NewsListActivity;
 import ui.me.NoticeListActivity;
 import ui.me.PeripheryActivity;
 import ui.me.SchoolListActivity;
+import ui.me.WeekLineActivity;
 import ui.tools.SnackbarUtil;
 
 import static Internet.NormalPostRequest.mURL;
@@ -117,7 +118,8 @@ public class MainActivity extends AppCompatActivity
         //初始化头像
         CircleImageView head = (CircleImageView) headerView.findViewById(R.id.image_head);
         if(pref.getBoolean("imghead",false)==true){
-            Picasso.with(this).load(imgurl+pref.getString("userid","")).into(head);
+//            Picasso.with(this).invalidate(uri);
+            Picasso.with(this).load(imgurl+pref.getString("userid","")).skipMemoryCache().into(head);
         }
 //        head.setImageResource(R.mipmap.main_2_more);
         //初始化名字
@@ -131,6 +133,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MymsgActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -290,8 +293,9 @@ public class MainActivity extends AppCompatActivity
         }else if (id == R.id.nav_more) {
             Intent intent = new Intent(MainActivity.this, MoreMovieActivity.class);
             startActivity(intent);
-        }else if (id == R.id.nav_fankui) {
-
+        }else if (id == R.id.nav_week) {
+            Intent intent = new Intent(MainActivity.this, WeekLineActivity.class);
+            startActivity(intent);
         }else if (id == R.id.nav_about) {
 
         }else if (id == R.id.nav_exit) {
@@ -342,8 +346,29 @@ public class MainActivity extends AppCompatActivity
                         }
 
                         @Override
-                        public void onItemLongClick(View view) {
-                            itemTouchHelper.startDrag(recyclerview.getChildViewHolder(view));
+                        public void onItemLongClick(final View view) {
+                            if(pref.getString("userid",null).equals("000000")){
+                                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                builder.setTitle("提示");
+                                builder.setMessage("确定要删除吗？");
+                                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int whichButton) {
+                                        //这里添加点击确定后的逻辑
+                                        int position=recyclerview.getChildAdapterPosition(view);
+                                        mAdapter.removeItem(position,recyclerview,coordinatorLayout,MainActivity.this);
+
+                                    }
+                                });
+                                builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int whichButton) {
+                                        //这里添加点击确定后的逻辑
+                                    }
+                                });
+                                builder.create().show();
+
+                            }else
+                                itemTouchHelper.startDrag(recyclerview.getChildViewHolder(view));
+
                         }
                     });
 

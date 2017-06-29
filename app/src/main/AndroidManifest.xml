@@ -93,6 +93,10 @@
             android:name="ui.me.MoreMovieActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name="ui.me.WeekLineActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

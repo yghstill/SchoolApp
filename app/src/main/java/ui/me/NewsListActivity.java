@@ -85,7 +85,7 @@ public class NewsListActivity extends BaseActivity implements View.OnClickListen
                 intent.putExtra("title",bean.getNewsname());
                 intent.putExtra("time",bean.getTime());
                 intent.putExtra("provider",bean.getReporter());
-                intent.putExtra("content","\u3000\u3000"+bean.getNewscontent().replace("\n\u3000\u3000", "\n")  );
+                intent.putExtra("content","\u3000\u3000"+bean.getNewscontent().replace("\n\u3000\u3000", "\\n")  );
                 startActivity(intent);
             }
         });

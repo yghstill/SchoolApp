@@ -11,17 +11,21 @@
             android:title="学校介绍" />
         <item
             android:id="@+id/nav_news"
-            android:icon="@mipmap/chat"
+            android:icon="@drawable/ic_menu_camera"
             android:title="校园新闻" />
         <item
             android:id="@+id/nav_tongzhi"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@mipmap/chat"
             android:title="通知公告" />
 
         <item
             android:id="@+id/nav_daohang"
             android:icon="@mipmap/ic_poision"
             android:title="校园导航" />
+        <item
+            android:id="@+id/nav_week"
+            android:icon="@mipmap/ic_set"
+            android:title="课程表" />
         <item
             android:id="@+id/nav_zhoubian"
             android:icon="@mipmap/ic_fankui"
@@ -33,10 +37,7 @@
     </group>
 
     <group android:id="@+id/first1_group">
-            <item
-                android:id="@+id/nav_fankui"
-                android:icon="@mipmap/ic_set"
-                android:title="反馈" />
+
             <item
                 android:id="@+id/nav_about"
                 android:icon="@mipmap/about"

@@ -29,6 +29,11 @@
     <color name="red">#DC143C</color>
     <color name="bootom_back">#5aaabf</color>
     <color name="skybule">#6495ED</color>
+    <color name="weekback">#98D262</color>
+    <color name="weekback2">#f25e6f</color>
+    <color name="weekback3">#8DAAE1</color>
+    <color name="weekback4">#64C6B9</color>
+    <color name="weekback1">#9c73da</color>
 
 
     <!-- dialog view -->
